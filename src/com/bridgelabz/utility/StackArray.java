@@ -64,7 +64,7 @@ public class StackArray {
 			}
 		
 	public static Scanner sc= new Scanner(System.in);
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		char ch;
 		int num;
@@ -102,9 +102,9 @@ public class StackArray {
 				}
 			System.out.println("\n Do you want to continue y/n");
 			ch=sc.next().charAt(0);
-		}while(ch=='y'||ch=='Y');
+		}while(ch=='y'||ch=='Y');*/
 		
 
-	}
+//	}
 
 }
