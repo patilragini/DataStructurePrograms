@@ -10,27 +10,32 @@
  *
  *************************************************************************************************/
 package com.bridgelabz.programs;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 import com.bridgelabz.utility.Utility;
-public class UnOrderedLinkedList {
-	public static Scanner scan=new Scanner(System.in);
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		
-		char ch;
-		//will enter do while loop once 
-		do {
-		//search word eg city name from a text file 
-		System.out.println("Enter the city you want to search:");
-		String word=scan.next();
-		Utility.searchWordFromFile(word);
-		System.out.println("Want to continue ?");
-		ch=scan.next().charAt(0);
-		} while (ch=='y'||ch=='Y');//continue operarting linked list till 'y'
-	 
-		
-	}
 
+public class UnOrderedLinkedList {
+	public static Scanner scan = new Scanner(System.in);
+
+	public static void main(String[] args) throws IOException {
+
+		char again;
+		// will enter do while loop once
+		try {
+			do {
+				// search word eg city name from a text file
+				System.out.println("Enter the city you want to search:");
+				String word = scan.next();
+				Utility.searchWordFromFile(word);
+				System.out.println("Want to continue ?");
+				again = scan.next().charAt(0);
+			} while (again == 'y' || again == 'Y');// continue operarting linked
+													// list till
+		} catch (Exception e) {
+			System.out.println("invalid input");
+		}
+
+	}
 }

@@ -16,26 +16,26 @@ import java.util.List;
 import com.bridgelabz.utility.Utility;
 
 public class Prime2D {
-	
+
 	public static void main(String[] args) {
-	// TODO Auto-generated method stub
-	List<Integer> list=new ArrayList<>();
-	int a=0;
-	for(int i=a;i<1000;i++) {            
-        if(Utility.checkPrime(i)) {
-        	list.add(i);        
-         }        
-         }
-		System.out.println("prime numbers are:"+list);
-//		System.out.println(list.size());
-		ArrayList<ArrayList<Integer>> result=Utility.prime2d(list );
+
+		List<Integer> list = new ArrayList<>();
+		int a = 0;
+		for (int i = a; i < 1000; i++) {
+			if (Utility.checkPrime(i)) {
+				list.add(i);
+			}
+		}
+		System.out.println("prime numbers are:" + list);
+		// System.out.println(list.size());
+		ArrayList<ArrayList<Integer>> result = Utility.prime2d(list);
 		System.out.println("\nprime number 2D matrix is\n");
-		/* display prime 2 D array*/
-		for(int i=0;i<result.size();i++) {
-			for(int j=0;j<result.get(i).size();j++) {
-				System.out.format("%4d",result.get(i).get(j));
+		/* display prime 2 D array */
+		for (int i = 0; i < result.size(); i++) {
+			for (int j = 0; j < result.get(i).size(); j++) {
+				System.out.format("%4d", result.get(i).get(j));
 			}
 			System.out.println();
-}
-}
+		}
+	}
 }
