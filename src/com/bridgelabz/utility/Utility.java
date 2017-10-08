@@ -1,4 +1,5 @@
-/*  @author  Ragini Patil
+/******************************************************************************
+* @author  Ragini Patil
 *  @version 1.0
 *  @since   28-08-2017
 *
@@ -26,7 +27,7 @@ import java.io.FileNotFoundException;
 
 /**
  * @author ragini
- *
+ *<p>Utility class 
  */
 
 @SuppressWarnings("unused")
@@ -34,24 +35,25 @@ public class Utility {
 
 	/**
 	 * @param int
-	 *            n returntype void
+	 *            decimalNumber returntype void
+	 *<p> prints binary number 
 	 */
-	public static void binary(int n) {
-		// set power to the largest power of 2 that is <= n
+	public static void binary(int decimalNumber) {
+		// set power to the largest power of 2 that is <= decimalNumber
 		int power = 1;
-		while (power <= n / 2) {
+		while (power <= decimalNumber / 2) {
 			power *= 2;
 		}
-		// check for presence of powers of 2 in n, from largest to smallest
+		// check for presence of powers of 2 in decimalNumber, from largest to smallest
 		while (power > 0) {
-			// power is not present in n
-			if (n < power) {
+			// power is not present in decimalNumber
+			if (decimalNumber < power) {
 				System.out.print(0);
 			}
-			// power is present in n, so subtract power from n
+			// power is present in decimalNumber, so subtract power from decimalNumber
 			else {
 				System.out.print(1);
-				n -= power;
+				decimalNumber -= power;
 			}
 			// next smallest power of 2
 			power /= 2;
@@ -77,32 +79,8 @@ public class Utility {
 		}
 	}
 
-	static int headctr, tailctr, year;
 
-	public static void flipCoin(int n) {
-		// math.random() returns value between 0.0 and 1
-		// so it is heads or tail 50% of time
-		int head, tail;
-		int number = n;
-		System.out.println("Number of flips=" + number);
-		for (int i = 0; i < number; i++) {
-			if (Math.random() < 0.5) {
-				headctr = headctr + 1;
-			} else {
-				tailctr++;
-			}
-		}
-		System.out.println("Heads percentage" + headctr);
-		System.out.println("Tails percentage" + tailctr);
-		head = headctr;
-		head = (head / number) * 100;
-		tail = (tailctr);
-		tail = (tail / number) * 100;
-		System.out.println("Heads percentage" + head + "%");
-		System.out.println("Tails percentage" + tail + "%");
-	}
-
-	public static void leapYear(int year) {
+	/**public static void leapYear(int year) {
 		boolean isLeapYear;
 		// see if year is divisible by 4 and remainder==0
 		isLeapYear = (year % 4 == 0);
@@ -115,29 +93,29 @@ public class Utility {
 			System.out.println(year + "  is leap year");
 		else
 			System.out.println(year + "  is not leap year");
-	}
+	}**/
 
 	
 
-	// function to check prime no
 	/**
 	 * @author ragini
 	 * @param int
-	 *            n
+	 *            number
 	 * @return int number
+	 *<p>function to check prime no
 	 **/
-	public static boolean checkPrime(int n) {
+	public static boolean checkPrime(int number) {
 
 		// condition to check if no less than two
-		if (n < 2) {
+		if (number < 2) {
 			return false;
 		}
 
 		// for loop to for checkin prime no
-		for (int factor = 2; factor * factor <= n; factor++) {
-			// if factor divides evenly into n, n is not prime, so break out of
+		for (int factor = 2; factor * factor <= number; factor++) {
+			// if factor divides evenly into number, number is not prime, so break out of
 			// loop
-			if (n % factor == 0) {
+			if (number % factor == 0) {
 				return false;
 
 			}
@@ -209,22 +187,6 @@ public class Utility {
 	}
 
 	
-	public static void euclideanDistance(double x, double y) {
-		double powx = (double) Math.pow(x, 2);
-		System.out.println("Power of x=" + powx);
-		double powy = (double) Math.pow(y, 2);
-		System.out.print("Power of y=" + powy);
-		/*
-		 * Math.sqrt is mathematical function in lang package for taking square
-		 * root
-		 */
-		double dist = (double) Math.sqrt(powx + powy); // distance formula.
-		System.out.println("Distance from (" + x + "," + y + ") to (0,0)=" + dist);
-		/*
-		 * Math.pow is mathematical function in lang package for taking power of
-		 * given number
-		 */
-	}
 
 	
 	
@@ -297,25 +259,6 @@ public class Utility {
 		}
 	}
 
-	public static void temperatureConversion(int tempCel, int tempFar, int choice) {
-		switch (choice) {
-		// if result=1 then case 1 execute
-		case 1:
-			float ResultFar = (tempCel * 9 / 5) + 32; // formula of celcius to
-														// fahrenhite
-			System.out.println(" The" + tempCel + " in celcius is converted to " + ResultFar + "in Fahrenhite");
-			break;// break come out of switch.
-		case 2:
-			float ResultCel = (tempFar - 32) * 5 / 9; // formula of fahrenhite
-														// to celcius
-			System.out.println(" The" + tempFar + " in Fahrenhite is converted to " + ResultCel + "in Celcius");
-			break;// break come out of switch.
-		default:
-			System.out.println("invalid entry "); // if result is not in
-													// case,come out of switch
-													// print
-		}
-	}
 
 	public static void monthlyPayment(double principle, double year, double rate) {
 		double n, r, payment;// n,r,payment are variables to store calculations
@@ -329,89 +272,7 @@ public class Utility {
 																	// paied
 	}
 
-	static double epsilon = 1e-15, t;
-
-	public static void sqrt(int number) {
-		epsilon = 1e-15; // relative error tolerance
-		t = number; // estimate of the square root of c
-		// repeatedly apply Newton update step until desired precision is
-		// achieved
-		if (number >= 0) {
-			while (Math.abs(t - number / t) > epsilon * t) {
-				t = (number / t + t) / 2.0;
-			}
-		} else
-			System.out.println("invalid number");
-		// print out the estimate of the square root of c
-		System.out.println(t);
-	}
-
-	public static String ticTacToe() {
-		boolean userTurn = false;
-		int gameArray[][] = new int[3][3];
-		int row, cols;
-		// 3*3 matrix
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				gameArray[i][j] = -1;
-			}
-		}
-		for (int k = 0; k < 9; k++) {
-
-			if (userTurn) {
-				userTurn(gameArray);
-				userTurn = false;
-				printGameArray(gameArray);
-				if (checkWin(gameArray, 0)) {
-					return "You Won";
-				}
-
-			} else {
-				System.out.println("Computer's Turn");
-				computerTurn(gameArray);
-				userTurn = true;
-				printGameArray(gameArray);
-				if (checkWin(gameArray, 1)) {
-					return "Computer Won";
-				}
-
-			}
-
-		}
-
-		return "Match Draw";
-	}
-
-	private static void printGameArray(int[][] gameArray) {
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				if (gameArray[i][j] == 0) {
-					System.out.print("| X |");
-				} else if (gameArray[i][j] == 1) {
-					System.out.print("| O |");
-				} else {
-					System.out.print("|   |");
-				}
-			}
-			System.out.println();
-			System.out.println("===============");
-		}
-
-	}
-
-	private static void computerTurn(int[][] gameArray) {
-
-		Random random = new Random();
-		int row = random.nextInt(3);
-		int cols = random.nextInt(3);
-		if (isValidTurn(gameArray, row, cols)) {
-			gameArray[row][cols] = 1;
-		} else {
-			computerTurn(gameArray);
-		}
-
-	}
-
+	
 	public static int getNodes(int node) {
 		int possibleTrees = 0;
 		int count = 0;
@@ -427,66 +288,7 @@ public class Utility {
 		}
 	}
 
-	private static boolean checkWin(int[][] gameArray, int i) {
-		for (int j = 0; j < 3; j++) {
-			if (gameArray[j][0] == i && gameArray[j][1] == i && gameArray[j][2] == i) {
-				return true;
-			}
-			if (gameArray[0][j] == i && gameArray[1][j] == i && gameArray[2][j] == i) {
-				return true;
-			}
-		}
-		if (gameArray[0][0] == i && gameArray[1][1] == i && gameArray[2][2] == i) {
-			return true;
-		}
-		if (gameArray[0][2] == i && gameArray[1][1] == i && gameArray[2][0] == i) {
-			return true;
-		}
-		return false;
-	}
-
-	private static void userTurn(int[][] gameArray) {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Your Turn....");
-		System.out.println("Enter Position");
-		System.out.print("Row=");
-		int row = scanner.nextInt() - 1;
-		System.out.print("Column=");
-		int cols = scanner.nextInt() - 1;
-		if (isValidTurn(gameArray, row, cols)) {
-			gameArray[row][cols] = 0;
-		} else {
-			userTurn(gameArray);
-		}
-		scanner.close();
-	}
-
-	private static boolean isValidTurn(int[][] gameArray, int row, int cols) {
-		if (gameArray[row][cols] == -1) {
-			return true;
-		}
-		return false;
-	}
-
-	public static void arrayTwoDim(int rows, int columns) {
-		Scanner scanner = new Scanner(System.in);
-		int[][] array = new int[rows][columns];
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
-				array[i][j] = scanner.nextInt();
-				;
-			}
-		}
-
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
-				System.out.print("  " + array[i][j]);
-			}
-			System.out.println();
-		}
-		scanner.close();
-	}
-
+	
 	public static <E> ArrayList<E> generateArray(int size, int choice) {
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<Integer> arr = new ArrayList<>();
@@ -499,7 +301,7 @@ public class Utility {
 
 	}
 
-	// 2 C ARRAY CREATION GENERIC INT DOUBLE BOOLEAN
+	// 2 D ARRAY CREATION GENERIC INT DOUBLE BOOLEAN
 
 	@SuppressWarnings("unchecked")
 	public static <T> T arrayCreateGenericTwoDim(int row, int coloumn, int choose) {
